@@ -19,8 +19,8 @@ public class AddOn {
     private String addOnName;
     private Double addOnPrice;
 
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "menu_item_id", nullable = false)
-    private List<MenuItem> menuItem;
+    private MenuItem menuItem;
 
 }

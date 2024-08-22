@@ -3,6 +3,8 @@ package com.luxury.virtualwaiter_service.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -17,7 +19,6 @@ public class Tag {
 
     private String tagName;
 
-    @ManyToOne
-    @JoinColumn(name="menu_item_id", nullable=false)
-    private MenuItem menuItem;
+    @ManyToMany(mappedBy = "tags")
+    private List<MenuItem> menuItems;
 }

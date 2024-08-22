@@ -23,6 +23,14 @@ public class OrderItem {
     private Double totalPrice;
 
     @ManyToOne
-    @JoinColumn(name="menu_item_id", nullable=false)
+    @JoinColumn(name = "menu_item_id", nullable = false)
     private MenuItem menuItem;
+
+    @OneToOne
+    @JoinColumn(name = "table_id", nullable = false)
+    private SingleTableOrder singleTableOrder;
+
+    @OneToOne
+    @JoinColumn(name = "order_id", nullable = false)
+    private SingleTableOrder singleTableOrder2;
 }

@@ -1,8 +1,7 @@
 package com.luxury.virtualwaiter_service.model;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.annotation.Id;
 
 @Entity
 @Getter
@@ -11,8 +10,15 @@ import org.springframework.data.annotation.Id;
 @AllArgsConstructor
 @Builder
 public class SingleTableOrder {
-    @Id
-    private String orderid;
-    @Id
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long singleTableOrderId;
+
+    private Long orderId;
+    private Integer tableId;
+
+    @ManyToOne
+    @JoinColumn(name = "status_id", nullable = false)
+    private Status status;
 }
