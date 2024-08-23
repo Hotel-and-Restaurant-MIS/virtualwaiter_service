@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.awt.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Setter
@@ -22,15 +23,19 @@ public class OrderItem {
     private Date dateTime;
     private Double totalPrice;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "menu_item_id", nullable = false)
     private MenuItem menuItem;
 
-    @OneToOne
-    @JoinColumn(name = "table_id", nullable = false)
-    private SingleTableOrder singleTableOrder;
+//    @ManyToOne
+////    @JoinColumn(name = "table_id", nullable = false)
+//    private SingleTableOrder singleTableOrder;
+////
+//    @OneToOne
+//    @JoinColumn(name = "order_id", nullable = false)
+//    private SingleTableOrder singleTableOrder2;
 
-    @OneToOne
-    @JoinColumn(name = "order_id", nullable = false)
-    private SingleTableOrder singleTableOrder2;
+    @OneToMany
+    private List<AddOn> addOnList;
+
 }
