@@ -1,5 +1,6 @@
 package com.luxury.virtualwaiter_service.service;
 
+import com.luxury.virtualwaiter_service.model.OrderItem;
 import com.luxury.virtualwaiter_service.repository.OrderItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,5 +13,9 @@ public class OrderItemService {
     @Autowired
     public OrderItemService(OrderItemRepository orderItemRepository) {
         this.orderItemRepository = orderItemRepository;
+    }
+
+    public OrderItem addOrderItem(OrderItem orderItem) {
+       return orderItemRepository.save(orderItem);
     }
 }

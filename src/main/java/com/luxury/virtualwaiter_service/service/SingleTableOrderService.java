@@ -1,5 +1,6 @@
 package com.luxury.virtualwaiter_service.service;
 
+import com.luxury.virtualwaiter_service.model.SingleTableOrder;
 import com.luxury.virtualwaiter_service.repository.SingleTableOrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,5 +12,9 @@ public class SingleTableOrderService {
     @Autowired
     public SingleTableOrderService(SingleTableOrderRepository singleTableOrderRepository) {
         this.singleTableOrderRepository = singleTableOrderRepository;
+    }
+
+    public SingleTableOrder saveSingleTableOrder(SingleTableOrder singleTableOrder) {
+        return singleTableOrderRepository.save(singleTableOrder);
     }
 }
